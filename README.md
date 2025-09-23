@@ -1,0 +1,1 @@
+This task involves building a profile picture inside a Box with a notification badge aligned to the bottom-end using Modifier.align(). Add a toggle button to show or hide the badge, then upload the code with a README to GitHub.
