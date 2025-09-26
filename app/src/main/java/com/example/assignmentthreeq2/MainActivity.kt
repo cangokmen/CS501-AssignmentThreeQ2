@@ -31,17 +31,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.assignmentthreeq2.ui.theme.AssignmentThreeQ2Theme
 
+// MainActivity is the app's entry point.
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // enableEdgeToEdge allows the UI to draw behind the system bars.
         enableEdgeToEdge()
         setContent {
             AssignmentThreeQ2Theme {
+                // Scaffold provides the basic Material Design layout structure.
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    // State for controlling the badge visibility.
                     var badgeIsOn by remember { mutableStateOf(true) }
-
+                    // Main content column, centered on the screen.
                     Column(
                         modifier = Modifier
+                            // Apply padding from Scaffold to avoid system bars.
                             .padding(innerPadding)
                             .fillMaxSize()
                             .padding(16.dp),
@@ -52,6 +57,7 @@ class MainActivity : ComponentActivity() {
                             badgeIsOn = badgeIsOn,
                             modifier = Modifier.padding(bottom = 24.dp)
                         )
+                        // Button to toggle the badge's visibility.
                         Button(onClick = { badgeIsOn = !badgeIsOn }) {
                             Text(if (badgeIsOn) "hide notification" else "show notification")
                         }
@@ -62,11 +68,16 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Displays a circular profile picture with an optional notification badge.
+ * @param badgeIsOn Determines if the badge is shown.
+ */
 @Composable
 fun ProfileAndNotificationBadge(
     badgeIsOn: Boolean,
     modifier: Modifier = Modifier
 ) {
+    // Box is used to overlay the badge on top of the image.
     Box(modifier = modifier.size(120.dp)) {
         Image(
             painter = painterResource(id = R.drawable.profile_picture),
@@ -74,12 +85,13 @@ fun ProfileAndNotificationBadge(
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxSize()
-                .clip(CircleShape)
+                .clip(CircleShape) // Clips the image into a circle.
         )
+        // Show the badge only if badgeIsOn is true.
         if (badgeIsOn) {
             Badge(
                 modifier = Modifier
-                    .align(Alignment.BottomEnd)
+                    .align(Alignment.BottomEnd) // Position badge at the bottom-right.
                     .padding(0.dp)
                     .size(20.dp),
                 containerColor = Color.Green
@@ -88,6 +100,7 @@ fun ProfileAndNotificationBadge(
     }
 }
 
+// A preview for the main screen UI.
 @Preview(showBackground = true)
 @Composable
 fun DefaultMainActivityPreview() {
