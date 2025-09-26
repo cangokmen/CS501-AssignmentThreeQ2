@@ -11,3 +11,5 @@ This exercise shows how to combine composables (`Box`, `Image`, `Badge`, and `Bu
 1. Clone this repository:
    ```bash
    git clone https://github.com/cangokmen/CS501-AssignmentThreeQ2.git
+2. Open the project in Android Studio.
+3. Run the app on an emulator or physical device.
