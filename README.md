@@ -10,4 +10,4 @@ This exercise shows how to combine composables (`Box`, `Image`, `Badge`, and `Bu
 ## How to Use the App
 1. Clone this repository:
    ```bash
-   git clone https://github.com/cangokmen/CS501-AssignmentThreeQ2
+   git clone https://github.com/cangokmen/CS501-AssignmentThreeQ2.git
